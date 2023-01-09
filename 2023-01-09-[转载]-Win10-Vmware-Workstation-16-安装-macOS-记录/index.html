@@ -1,0 +1,883 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Kiprey">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="转载自：Win10 Vmware Workstation 16 安装 macOS 记录 原文链接：https:&#x2F;&#x2F;kiprey.github.io&#x2F;2021&#x2F;12&#x2F;vmware_macos&#x2F;  一、简介这里记录了我在 Win10 VMware workstation 上配置 macOS 虚拟机所踩过的坑点。 二、MacOS 安装 首先，下载 VMware 解锁 MacOS 选项的补丁。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转载] Win10 Vmware Workstation 16 安装 macOS 记录">
+<meta property="og:url" content="https://www.kingdeworld.top/2023-01-09-[%E8%BD%AC%E8%BD%BD]-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/">
+<meta property="og:site_name" content="Wanghzo&#39;s Blog">
+<meta property="og:description" content="转载自：Win10 Vmware Workstation 16 安装 macOS 记录 原文链接：https:&#x2F;&#x2F;kiprey.github.io&#x2F;2021&#x2F;12&#x2F;vmware_macos&#x2F;  一、简介这里记录了我在 Win10 VMware workstation 上配置 macOS 虚拟机所踩过的坑点。 二、MacOS 安装 首先，下载 VMware 解锁 MacOS 选项的补丁。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213105750235.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213111248818.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213111314996.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213112904276.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113011006.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113058440.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113304952.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113443227.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213120226602.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213105925673.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213110427580.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213111727333.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213130817589.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213131013230.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213131148295.png">
+<meta property="og:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113443227.png">
+<meta property="article:published_time" content="2023-01-09T03:00:25.000Z">
+<meta property="article:modified_time" content="2023-01-09T10:52:11.894Z">
+<meta property="article:author" content="Wanghzo">
+<meta property="article:tag" content="macOS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.kingdeworld.top/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213105750235.png">
+  
+  
+  
+  <title>[转载] Win10 Vmware Workstation 16 安装 macOS 记录 - Wanghzo&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.kingdeworld.top","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wanghzo&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="[转载] Win10 Vmware Workstation 16 安装 macOS 记录"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Kiprey
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-09 11:00" pubdate>
+          2023年1月9日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          35 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="虚拟机"
+        id="heading-7fea6eac23f8a25b82a768b6f3f4c724" role="tab" data-toggle="collapse" href="#collapse-7fea6eac23f8a25b82a768b6f3f4c724"
+        aria-expanded="true"
+      >
+        虚拟机
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-7fea6eac23f8a25b82a768b6f3f4c724"
+           role="tabpanel" aria-labelledby="heading-7fea6eac23f8a25b82a768b6f3f4c724">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/" title="[转载] Win10 Vmware Workstation 16 安装 macOS 记录"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">[转载] Win10 Vmware Workstation 16 安装 macOS 记录</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">[转载] Win10 Vmware Workstation 16 安装 macOS 记录</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>转载自：Win10 Vmware Workstation 16 安装 macOS 记录</p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://kiprey.github.io/2021/12/vmware_macos/">https://kiprey.github.io/2021/12/vmware_macos&#x2F;</a></p>
+</blockquote>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>这里记录了我在 Win10 VMware workstation 上配置 macOS 虚拟机所踩过的坑点。</p>
+<h2 id="二、MacOS-安装"><a href="#二、MacOS-安装" class="headerlink" title="二、MacOS 安装"></a>二、MacOS 安装</h2><ul>
+<li><p>首先，下载 VMware 解锁 MacOS 选项的补丁。</p>
+<blockquote>
+<p>“解锁 MacOS” 的这个说法其实个人感觉不是特别直接。</p>
+<p>这个补丁的用途是<strong>让 VMware 额外支持 MacOS</strong>。</p>
+</blockquote>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">COPYgit <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@github.com:BDisp/unlocker.git<br></code></pre></td></tr></table></figure>
+
+<p>之后，去任务管理器中，<strong>强制退出所有 VMware 开头的进程</strong>，防止补丁失败：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213105750235.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213105750235">
+
+<p>之后<strong>管理员执行</strong> <code>win-install.cmd</code>。执行时脚本会去 vmware 官网上下载一些东西，时间取决于网络条件。</p>
+<p>执行完成后，<strong>重启电脑</strong>或手动去 <strong>服务</strong> 底下打开 <strong>VMware NAT Service</strong> 和 <strong>VMware VMnet DHCP service</strong> 服务，否则<strong>虚拟机将无法连接网络</strong>。</p>
+<blockquote>
+<p>坑点：之前忘记重启网络服务了…</p>
+</blockquote>
+</li>
+<li><p>接着，去 Vmware 上新建虚拟机，并指定光盘映像文件为下载下来的 ISO&#x2F;CDR 文件：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213111248818.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213111248818">
+
+<p>然后选择 <code>Apple Mac OS X</code>，并一路 next 下去。磁盘大小建议 <strong>至少分配70GB</strong>。</p>
+<blockquote>
+<p>如果此时 VMware 里没有这个选项，则说明安装 VMware 补丁失败，需要重新安装最新版的补丁。</p>
+</blockquote>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213111314996.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213111314996">
+</li>
+<li><p>虚拟机建立好后，启动虚拟机。在<strong>磁盘工具</strong>处：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213112904276.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213112904276">
+
+<p>将 Vmware 磁盘抹掉（格式化），不然安装 macOS 时将无法访问到 VMware 磁盘：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113011006.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213113011006">
+
+<p>抹掉时改个磁盘名称就可以，其他的都不用动：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113058440.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213113058440">
+
+<p>格式化磁盘后，在上方 <strong>实用工具-&gt;终端</strong>：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113304952.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213113304952">
+
+<p>键入 <code>csrutil disable</code> 禁用系统完整性保护：</p>
+<blockquote>
+<p>因为系统完整性保护会限制 root 权限的行为。</p>
+</blockquote>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113443227.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213113443227">
+
+<p>之后键入 <code>csrutil authenticated-root disable</code> 以关闭 Authenticated-root 保护。该保护会使得 MacOS 在引导期间，将一个被加密签名后的<strong>只读根文件系统快照挂载进根目录</strong>，因此我们需要禁用它以便于修改根路径或系统路径下的文件等。</p>
+<blockquote>
+<p>如果还是不行，则在 MacOS 安装完成后，执行 <code>sudo mount -uw /</code> 试试，注意该指令只在本次开机时有效，下次开机需要重新设置。</p>
+</blockquote>
+<p>接下来照常安装 MacOS 即可。</p>
+</li>
+<li><p>MacOS 安装完成后。<strong>不要马上启动！不要马上启动！不要马上启动！</strong></p>
+<p>要先在该 MacOS 的 vmx 文件末尾追加 <code>smc.version = 0</code>，防止虚拟机出现错误。</p>
+<p>追加完成后再启动。</p>
+</li>
+<li><p>启动新安装的 MacOS，之后一定要<strong>立即升级当前安装的 MacOS 系统</strong>（12GB左右）。因为 Apple 对远古版本的 MacOS 支持性非常低，就连安装软件都会有限制。</p>
+<p>一定要在完成 MacOS 系统升级后，再去装各类软件以及 IDE 等等。</p>
+<p>最好先安装当前远古版本 MacOS 系统的一些补丁，再去升级 MacOS 系统，不然可能有一定概率会升级失败。</p>
+<blockquote>
+<p>我这边更新到的版本是 <code>macOS Monterey 12.0.1</code>。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="三、安装各类软件"><a href="#三、安装各类软件" class="headerlink" title="三、安装各类软件"></a>三、安装各类软件</h2><ol>
+<li><p>vmtools。右键虚拟机并点击 <strong>安装 Vmware Tools</strong>，然后根据步骤一步步来就好。</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213120226602.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213120226602">
+</li>
+<li><p>AppStore 上安装</p>
+<ol>
+<li>DevCleaner for xcode：释放 Xcode 缓存文件。</li>
+<li>xcode（12GB左右）。不用多说。</li>
+<li>超级右键。扩展一下自己的右键菜单，使得支持<strong>右键打开终端操作</strong>。</li>
+</ol>
+</li>
+<li><p>下载 <a target="_blank" rel="noopener" href="https://bjango.com/mac/istatmenus/">iStat Menus6</a>。这是 MacOS 上的一个系统监测软件，需要付费，可用序列号如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">COPYEmail</span>: <span class="hljs-number">982092332</span>@qq.com<br><span class="hljs-attribute">SN</span>: GAWAE-FCWQ3-P8NYB-C7GF7-NEDRT-Q5DTB-MFZG6-<span class="hljs-number">6</span>NEQC-CRMUD-<span class="hljs-number">8</span>MZ2K-<span class="hljs-number">66</span>SRB-SU8EW-EDLZ9-TGH3S-<span class="hljs-number">8</span>SGA<br><br><span class="hljs-attribute">ref</span>: http://www.pc6.com/mac/<span class="hljs-number">111587</span>.html<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>安装homebrew 包管理器</p>
+<blockquote>
+<p>安装 homebrew 时需要<strong>多次输入密码</strong>，切记别走开。</p>
+</blockquote>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">COPY</span><span class="hljs-comment"># 安装 homebrew</span><br>/<span class="hljs-string">bin</span>/<span class="hljs-string">bash</span> -<span class="hljs-string">c</span> <span class="hljs-string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span><br><span class="hljs-comment"># 配置国内 brew 源</span><br><span class="hljs-string">cd</span> <span class="hljs-string">&quot;$(brew --repo)&quot;</span><br><span class="hljs-string">git</span> <span class="hljs-string">remote</span> <span class="hljs-built_in">set-url</span> <span class="hljs-string">origin</span> <span class="hljs-string">https</span>://<span class="hljs-string">mirrors</span>.<span class="hljs-string">aliyun</span>.<span class="hljs-string">com</span>/<span class="hljs-string">homebrew</span>/<span class="hljs-string">brew</span>.<span class="hljs-string">git</span><br><span class="hljs-string">git</span> <span class="hljs-string">remote</span> <span class="hljs-built_in">get-url</span> <span class="hljs-string">origin</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果发现 brew 安装有问题，无法搜索到任何软件包，则尝试运行 <code>brew doctor</code> 命令获取解决方案。</p>
+</blockquote>
+</li>
+<li><p>设置双拼<strong>自然码</strong>方案。进入 <strong>设置-&gt;键盘-&gt;输入法</strong>，选择<strong>简体双拼</strong>，并在终端键入以下命令以启动<strong>自然码</strong>方案：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">COPYdefaults write com<span class="hljs-selector-class">.apple</span><span class="hljs-selector-class">.inputmethod</span><span class="hljs-selector-class">.CoreChineseEngineFramework</span> shuangpinLayout <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>安装 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/?dv=osx">VSCode for macOS</a>。下载后将其拖入<strong>应用程序文件夹</strong>下。</p>
+</li>
+<li><p>安装 proxychain</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">COPYbrew install proxychains-ng<br>nano <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/etc/</span>proxychains.conf<br>proxychains4 curl -v google.com<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置 git。</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs autoit">COPYssh-keygen<br>cat ~/.ssh/id_rsa.pub <span class="hljs-meta"># 获取公钥</span><br><span class="hljs-meta"># 将公钥上传至 github 上</span><br>git config --<span class="hljs-keyword">global</span> user.name Kiprey<br>git config --<span class="hljs-keyword">global</span> user.email Kiprey<span class="hljs-symbol">@qq</span>.com<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>安装 ohmyzsh。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">COPYbrew <span class="hljs-keyword">install </span>wget<br><span class="hljs-keyword">sh </span>-c <span class="hljs-string">&quot;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>之后安装常用插件</p>
+<ul>
+<li><p>autojump</p>
+<p>执行以下命令下载：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">COPYgit clone git:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/joelthelion/</span>autojump.git<br>cd autojump<br>./install.py<br></code></pre></td></tr></table></figure>
+
+<p>之后 <code>nano ~/.zshrc</code>，将以下内容添加至文件末尾：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">COPY</span>[[ -s <span class="hljs-regexp">/Users/</span>kiprey<span class="hljs-regexp">/.autojump/</span>etc<span class="hljs-regexp">/profile.d/</span>autojump.sh ]] &amp;&amp; <span class="hljs-keyword">source</span> <span class="hljs-regexp">/Users/</span>kiprey<span class="hljs-regexp">/.autojump/</span>etc<span class="hljs-regexp">/profile.d/</span>autojump.sh<br>autoload -U compinit &amp;&amp; compinit -u<br></code></pre></td></tr></table></figure>
+
+<p>然后将 <code>autojump</code> 添加进 <code>.zshrc</code> 中的 plugin 字段中：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">COPY</span><span class="language-bash"><span class="hljs-comment"># Which plugins would you like to load?</span></span><br><span class="hljs-comment"># Standard plugins can be found in $ZSH/plugins/</span><br><span class="hljs-comment"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span><br><span class="hljs-comment"># Example format: plugins=(rails git textmate ruby lighthouse)</span><br><span class="hljs-comment"># Add wisely, as too many plugins slow down shell startup.</span><br>plugins=(git autojump)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>zsh-autosuggestions 与 zsh-syntax-highlighting</p>
+<p>下载：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">COPYgit clone git:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/zsh-users/</span>zsh-autosuggestions <span class="hljs-variable">$ZSH_CUSTOM</span><span class="hljs-regexp">/plugins/</span>zsh-autosuggestions<br>git clone git:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/zsh-users/</span>zsh-syntax-highlighting <span class="hljs-variable">$ZSH_CUSTOM</span><span class="hljs-regexp">/plugins/</span>zsh-syntax-highlighting<br></code></pre></td></tr></table></figure>
+
+<p>将 <code>zsh-autosuggestions</code> 和 <code>zsh-syntax-highlighting</code> 添加进 <code>.zshrc</code> 中的 plugin 字段中：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">COPYplugins</span><span class="hljs-operator">=</span>(git autojump zsh-autosuggestions zsh-syntax-highlighting)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>插件安装完成后，最后执行 <code>source ~/.zshrc</code> 重新载入新的 zsh 配置以启动插件。</p>
+</li>
+<li><p>安装 ShadowSocksR。下载地址：<a target="_blank" rel="noopener" href="https://github.com/qinyuhang/ShadowsocksX-NG-R/releases">shadowsocksX-NG-R - github</a>，支持订阅地址。</p>
+</li>
+</ol>
+<h2 id="四、扩容分区"><a href="#四、扩容分区" class="headerlink" title="四、扩容分区"></a>四、扩容分区</h2><p>如果发现 MacOS 磁盘大小不够，需要扩容一下虚拟磁盘，则按照以下步骤进行：</p>
+<ol>
+<li><p>先去 Vmware 那里扩容一下磁盘</p>
+</li>
+<li><p>在 MacOS 中，执行 <code>diskutil list</code> 查看当前磁盘情况：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213105925673.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213105925673">
+
+<p>其中，disk0 为整个磁盘，而 disk0s2 分区即 MacOS 此时使用的空间，因此我们需要扩容 disk0s2。</p>
+</li>
+<li><p>尝试扩展磁盘。</p>
+<p>网络上都使用的是这个命令：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">COPYdiskutil</span> resizeVolume disk0s2 <span class="hljs-number">50</span>GB<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中 disk0s2 为待扩容磁盘，50GB 为目标扩容大小。</p>
+</blockquote>
+<p>但是由于本人的 disk0s2 为 <code>Apple_APFS</code> 类型，因此上述命令不可使用。</p>
+<p>需要使用以下命令：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">COPYdiskutil</span> apfs resizeContainer disk0s2 <span class="hljs-number">70</span>GB<br></code></pre></td></tr></table></figure>
+
+<p>之后就开始扩容：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213110427580.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213110427580">
+</li>
+<li><p>扩容成功</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213111727333.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213111727333"></li>
+</ol>
+<h2 id="五、关闭系统完整性保护"><a href="#五、关闭系统完整性保护" class="headerlink" title="五、关闭系统完整性保护"></a>五、关闭系统完整性保护</h2><p>MacOS 中的系统完整性保护(<strong>SIP</strong>)，会限制住 root 用户的权限，因此需要将其关闭。</p>
+<blockquote>
+<p>见过用 root 权限 lldb attach 其他进程时，被拒绝的快乐嘛…</p>
+</blockquote>
+<p>最简单的关闭方式，莫过于上面在一开始安装时就将其关闭。</p>
+<p>但要是当时安装时忘记关闭，那么现在去关闭 SIP 就会稍微折腾一点…</p>
+<ol>
+<li><p>设置虚拟机 CD&#x2F;DVD 路径为原先的 MacOS 安装镜像：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213130817589.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213130817589"></li>
+</ol>
+<p>之后，进入虚拟机 BIOS</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213131013230.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213131013230">
+
+<p>选择以 CD 为启动盘：</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213131148295.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213131148295">
+
+<p>之后在启动后的界面，进入 <strong>实用工具-&gt;终端</strong> 下，键入 <code>csrutil disable</code> 命令并重启虚拟机，即可关闭 SIP。</p>
+<img src="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95/image-20211213113443227.png" srcset="/img/loading.gif" lazyload class="" title="image-20211213113443227">
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="category-chain-item">虚拟机</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/macOS/">#macOS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>[转载] Win10 Vmware Workstation 16 安装 macOS 记录</div>
+      <div>https://www.kingdeworld.top/2023-01-09-[转载]-Win10-Vmware-Workstation-16-安装-macOS-记录/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Kiprey</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年1月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023-01-09-%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/" title="[转载] GitHubDesktop通过ssh连接Github">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">[转载] GitHubDesktop通过ssh连接Github</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023-01-08-test/" title="test">
+                        <span class="hidden-mobile">test</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <script src="https://fastly.jsdelivr.net/gh/Wanghzo/live2d-widget@latest/autoload.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
