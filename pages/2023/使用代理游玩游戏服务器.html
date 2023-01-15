@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Wanghzo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="重要！ 进入游戏后关闭代理 PC游玩之前需要打补丁  使用mitmdumpPC编写proxy_config.py 123456789101112131415161718import os# This can also be replaced with another IP address.USE_SSL &#x3D; TrueREMOTE_HOST &#x3D; &quot;&lt;服务器ip&gt;&quot;RE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用代理游玩游戏服务器">
+<meta property="og:url" content="https://www.kingdeworld.top/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8">
+<meta property="og:site_name" content="Wanghzo&#39;s Blog">
+<meta property="og:description" content="重要！ 进入游戏后关闭代理 PC游玩之前需要打补丁  使用mitmdumpPC编写proxy_config.py 123456789101112131415161718import os# This can also be replaced with another IP address.USE_SSL &#x3D; TrueREMOTE_HOST &#x3D; &quot;&lt;服务器ip&gt;&quot;RE">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/1.webp">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/2.webp">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/3.webp">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/4.webp">
+<meta property="article:published_time" content="2023-01-13T23:56:25.000Z">
+<meta property="article:modified_time" content="2023-01-15T01:22:53.309Z">
+<meta property="article:author" content="Wanghzo">
+<meta property="article:tag" content="grasscutter">
+<meta property="article:tag" content="原神">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.kingdeworld.top/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/1.webp">
+  
+  
+  
+  <title>使用代理游玩游戏服务器 - Wanghzo&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.kingdeworld.top","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","tag","category","about","links","page",404,"archives"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Wanghzo&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">使用代理游玩游戏服务器</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Wanghzo
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-14 07:56" pubdate>
+          2023年1月14日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          57 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="游戏"
+        id="heading-ba08216f13dd1742157412386eee1225" role="tab" data-toggle="collapse" href="#collapse-ba08216f13dd1742157412386eee1225"
+        aria-expanded="true"
+      >
+        游戏
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-ba08216f13dd1742157412386eee1225"
+           role="tabpanel" aria-labelledby="heading-ba08216f13dd1742157412386eee1225">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="原神"
+        id="heading-fc439dedbb06ca5fd858848e521b8716" role="tab" data-toggle="collapse" href="#collapse-fc439dedbb06ca5fd858848e521b8716"
+        aria-expanded="true"
+      >
+        原神
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-fc439dedbb06ca5fd858848e521b8716"
+           role="tabpanel" aria-labelledby="heading-fc439dedbb06ca5fd858848e521b8716">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/pages/2023/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BA%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8" title="使用docker搭建游戏服务器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用docker搭建游戏服务器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8" title="使用代理游玩游戏服务器"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">使用代理游玩游戏服务器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/pages/2023/%E5%8E%9F%E7%A5%9EAPI" title="原神API"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">原神API</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">使用代理游玩游戏服务器</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="重要！"><a href="#重要！" class="headerlink" title="重要！"></a>重要！</h1><ol>
+<li><span style="background:#ff0">进入游戏后关闭代理</span></li>
+<li><span style="background:#ff0">PC游玩之前需要打补丁</span></li>
+</ol>
+<h1 id="使用mitmdump"><a href="#使用mitmdump" class="headerlink" title="使用mitmdump"></a>使用mitmdump</h1><h2 id="PC"><a href="#PC" class="headerlink" title="PC"></a>PC</h2><p>编写<code>proxy_config.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><br><span class="hljs-comment"># This can also be replaced with another IP address.</span><br>USE_SSL = <span class="hljs-literal">True</span><br>REMOTE_HOST = <span class="hljs-string">&quot;&lt;服务器ip&gt;&quot;</span><br>REMOTE_PORT = &lt;服务器端口&gt;<br><br><span class="hljs-keyword">if</span> os.getenv(<span class="hljs-string">&#x27;MITM_REMOTE_HOST&#x27;</span>) != <span class="hljs-literal">None</span>:<br>    REMOTE_HOST = os.getenv(<span class="hljs-string">&#x27;MITM_REMOTE_HOST&#x27;</span>)<br><span class="hljs-keyword">if</span> os.getenv(<span class="hljs-string">&#x27;MITM_REMOTE_PORT&#x27;</span>) != <span class="hljs-literal">None</span>:<br>    REMOTE_PORT = <span class="hljs-built_in">int</span>(os.getenv(<span class="hljs-string">&#x27;MITM_REMOTE_PORT&#x27;</span>))<br><span class="hljs-keyword">if</span> os.getenv(<span class="hljs-string">&#x27;MITM_USE_SSL&#x27;</span>) != <span class="hljs-literal">None</span>:<br>    USE_SSL = <span class="hljs-built_in">bool</span>(os.getenv(<span class="hljs-string">&#x27;MITM_USE_SSL&#x27;</span>))<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;MITM Remote Host: &#x27;</span> + REMOTE_HOST)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;MITM Remote Port: &#x27;</span> + <span class="hljs-built_in">str</span>(REMOTE_PORT))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;MITM Use SSL &#x27;</span> + <span class="hljs-built_in">str</span>(USE_SSL))<br><br></code></pre></td></tr></table></figure>
+
+<p>编写<code>proxy.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">##</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#   Copyright (C) 2002-2022 MlgmXyysd All Rights Reserved.</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">##</span><br><br><span class="hljs-comment">##</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#   Animation Company script for mitmproxy</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#   https://github.com/MlgmXyysd/</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#   *Original fiddler script from https://github.lunatic.moe/fiddlerscript</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#   Environment requirement:</span><br><span class="hljs-comment">#     - mitmdump from mitmproxy</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#   @author MlgmXyysd</span><br><span class="hljs-comment">#   @version 1.1</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">##</span><br><br><span class="hljs-keyword">import</span> collections<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">from</span> mitmproxy <span class="hljs-keyword">import</span> http, connection, ctx, tls<br><span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABC, abstractmethod<br><span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum<br><span class="hljs-keyword">from</span> mitmproxy.utils <span class="hljs-keyword">import</span> human<br><span class="hljs-keyword">from</span> proxy_config <span class="hljs-keyword">import</span> USE_SSL<br><span class="hljs-keyword">from</span> proxy_config <span class="hljs-keyword">import</span> REMOTE_HOST<br><span class="hljs-keyword">from</span> proxy_config <span class="hljs-keyword">import</span> REMOTE_PORT<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MlgmXyysd_Animation_Company_Proxy</span>:<br><br>    LIST_DOMAINS = [<br>        <span class="hljs-string">&quot;api-os-takumi.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;hk4e-api-os-static.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;hk4e-sdk-os.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;dispatchosglobal.yuanshen.com&quot;</span>,<br>        <span class="hljs-string">&quot;osusadispatch.yuanshen.com&quot;</span>,<br>        <span class="hljs-string">&quot;account.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;log-upload-os.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;dispatchcntest.yuanshen.com&quot;</span>,<br>        <span class="hljs-string">&quot;devlog-upload.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;webstatic.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;log-upload.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;hk4e-sdk.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;api-beta-sdk.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;api-beta-sdk-os.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;cnbeta01dispatch.yuanshen.com&quot;</span>,<br>        <span class="hljs-string">&quot;dispatchcnglobal.yuanshen.com&quot;</span>,<br>        <span class="hljs-string">&quot;cnbeta02dispatch.yuanshen.com&quot;</span>,<br>        <span class="hljs-string">&quot;sdk-os-static.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;webstatic-sea.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;webstatic-sea.hoyoverse.com&quot;</span>,<br>        <span class="hljs-string">&quot;hk4e-sdk-os-static.hoyoverse.com&quot;</span>,<br>        <span class="hljs-string">&quot;sdk-os-static.hoyoverse.com&quot;</span>,<br>        <span class="hljs-string">&quot;api-account-os.hoyoverse.com&quot;</span>,<br>        <span class="hljs-string">&quot;hk4e-sdk-os.hoyoverse.com&quot;</span>,<br>        <span class="hljs-string">&quot;overseauspider.yuanshen.com&quot;</span>,<br>        <span class="hljs-string">&quot;gameapi-account.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;minor-api.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;public-data-api.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;uspider.yuanshen.com&quot;</span>,<br>        <span class="hljs-string">&quot;sdk-static.mihoyo.com&quot;</span>,<br>        <span class="hljs-string">&quot;abtest-api-data-sg.hoyoverse.com&quot;</span>,<br>        <span class="hljs-string">&quot;log-upload-os.hoyoverse.com&quot;</span><br>    ]<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">request</span>(<span class="hljs-params">self, flow: http.HTTPFlow</span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">if</span> flow.request.host <span class="hljs-keyword">in</span> self.LIST_DOMAINS:<br>            <span class="hljs-keyword">if</span> USE_SSL:<br>                flow.request.scheme = <span class="hljs-string">&quot;https&quot;</span><br>            <span class="hljs-keyword">else</span>:<br>                flow.request.scheme = <span class="hljs-string">&quot;http&quot;</span><br>            flow.request.host = REMOTE_HOST<br>            flow.request.port = REMOTE_PORT<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">InterceptionResult</span>(<span class="hljs-title class_ inherited__">Enum</span>):<br>    SUCCESS = <span class="hljs-number">1</span><br>    FAILURE = <span class="hljs-number">2</span><br>    SKIPPED = <span class="hljs-number">3</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TlsStrategy</span>(<span class="hljs-title class_ inherited__">ABC</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        self.history = collections.defaultdict(<span class="hljs-keyword">lambda</span>: collections.deque(maxlen=<span class="hljs-number">200</span>))<br><br><span class="hljs-meta">    @abstractmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">should_intercept</span>(<span class="hljs-params">self, server_address: connection.Address</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">raise</span> NotImplementedError()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">record_success</span>(<span class="hljs-params">self, server_address</span>):<br>        self.history[server_address].append(InterceptionResult.SUCCESS)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">record_failure</span>(<span class="hljs-params">self, server_address</span>):<br>        self.history[server_address].append(InterceptionResult.FAILURE)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">record_skipped</span>(<span class="hljs-params">self, server_address</span>):<br>        self.history[server_address].append(InterceptionResult.SKIPPED)<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ConservativeStrategy</span>(<span class="hljs-title class_ inherited__">TlsStrategy</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">should_intercept</span>(<span class="hljs-params">self, server_address: connection.Address</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">return</span> InterceptionResult.FAILURE <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.history[server_address]<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ProbabilisticStrategy</span>(<span class="hljs-title class_ inherited__">TlsStrategy</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, p: <span class="hljs-built_in">float</span></span>):<br>        self.p = p<br>        <span class="hljs-built_in">super</span>().__init__()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">should_intercept</span>(<span class="hljs-params">self, server_address: connection.Address</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">return</span> random.uniform(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) &lt; self.p<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MaybeTls</span>:<br>    strategy: TlsStrategy<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">load</span>(<span class="hljs-params">self, l</span>):<br>        l.add_option(<br>            <span class="hljs-string">&quot;tls_strategy&quot;</span>, <span class="hljs-built_in">int</span>, <span class="hljs-number">0</span>,<br>            <span class="hljs-string">&quot;TLS passthrough strategy. If set to 0, connections will be passed through after the first unsuccessful &quot;</span><br>            <span class="hljs-string">&quot;handshake. If set to 0 &lt; p &lt;= 100, connections with be passed through with probability p.&quot;</span>,<br>        )<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">configure</span>(<span class="hljs-params">self, updated</span>):<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;tls_strategy&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> updated:<br>            <span class="hljs-keyword">return</span><br>        <span class="hljs-keyword">if</span> ctx.options.tls_strategy &gt; <span class="hljs-number">0</span>:<br>            self.strategy = ProbabilisticStrategy(ctx.options.tls_strategy / <span class="hljs-number">100</span>)<br>        <span class="hljs-keyword">else</span>:<br>            self.strategy = ConservativeStrategy()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tls_clienthello</span>(<span class="hljs-params">self, data: tls.ClientHelloData</span>):<br>        server_address = data.context.server.peername<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.strategy.should_intercept(server_address):<br>            ctx.log(<span class="hljs-string">f&quot;TLS passthrough: <span class="hljs-subst">&#123;human.format_address(server_address)&#125;</span>.&quot;</span>)<br>            data.ignore_connection = <span class="hljs-literal">True</span><br>            self.strategy.record_skipped(server_address)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tls_established_client</span>(<span class="hljs-params">self, data: tls.TlsData</span>):<br>        server_address = data.context.server.peername<br>        ctx.log(<span class="hljs-string">f&quot;TLS handshake successful: <span class="hljs-subst">&#123;human.format_address(server_address)&#125;</span>&quot;</span>)<br>        self.strategy.record_success(server_address)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tls_failed_client</span>(<span class="hljs-params">self, data: tls.TlsData</span>):<br>        server_address = data.context.server.peername<br>        ctx.log(<span class="hljs-string">f&quot;TLS handshake failed: <span class="hljs-subst">&#123;human.format_address(server_address)&#125;</span>&quot;</span>)<br>        self.strategy.record_failure(server_address)<br>        <br>addons = [<br>	MlgmXyysd_Animation_Company_Proxy(),<br>    MaybeTls()<br>]<br></code></pre></td></tr></table></figure>
+
+<p>运行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#可以不指定本地端口，默认为8080</span><br>.\mitmdump.exe -p &lt;本地端口&gt; -s proxy.py -k --allow-hosts <span class="hljs-string">&quot;.*\.yuanshen\.com|.*\.mihoyo\.com|.*\.hoyoverse\.com&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>开启游戏游玩即可。</p>
+<h2 id="手机"><a href="#手机" class="headerlink" title="手机"></a>手机</h2><h3 id="方法一：将mitm代理服务器搭载到手机上"><a href="#方法一：将mitm代理服务器搭载到手机上" class="headerlink" title="方法一：将mitm代理服务器搭载到手机上"></a>方法一：将mitm代理服务器搭载到手机上</h3><h3 id="方法二：将mitm代理服务器搭载到电脑上，用手机连接"><a href="#方法二：将mitm代理服务器搭载到电脑上，用手机连接" class="headerlink" title="方法二：将mitm代理服务器搭载到电脑上，用手机连接"></a>方法二：将mitm代理服务器搭载到电脑上，用手机连接</h3><h3 id="方法三：（安卓）使用lspatch模块"><a href="#方法三：（安卓）使用lspatch模块" class="headerlink" title="方法三：（安卓）使用lspatch模块"></a>方法三：（安卓）使用lspatch模块</h3><h1 id="使用fiddler"><a href="#使用fiddler" class="headerlink" title="使用fiddler"></a>使用fiddler</h1><h2 id="PC-1"><a href="#PC-1" class="headerlink" title="PC"></a>PC</h2><ol>
+<li><p>下载Fiddler：<a target="_blank" rel="noopener" href="https://www.telerik.com/fiddler/fiddler-classic">https://www.telerik.com/fiddler/fiddler-classic</a></p>
+</li>
+<li><p>选择左上角Tools-Options，在HTTPS里面选择Decrypt HTTPS traffic，三个勾可以都打上。</p>
+<img src="/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/1.webp" srcset="/img/loading.gif" lazyload class="" title="第一步">
+
+<img src="/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/2.webp" srcset="/img/loading.gif" lazyload class="" title="勾上">
+</li>
+<li><p>选择Connections，然后选择一个端口，建议避开8888端口防止占用，我这里用的是8181端口，点击OK。</p>
+<img src="/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/3.webp" srcset="/img/loading.gif" lazyload class="" title="第二步">
+</li>
+<li><p>在Fiddler右侧找到FiddlerScript，把原来的代码全部删掉，然后把下面的这一段代码放进去<strong>（只需把oS.host改成自己的即可）</strong>，然后点击左上角的Save Script保存脚本使其生效。</p>
+<img src="/pages/2023/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B8%B8%E7%8E%A9%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/4.webp" srcset="/img/loading.gif" lazyload class="" title="第三步">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/* Original script by NicknameGG, modified for Grasscutter by contributors. */</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">System</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">System</span>.<span class="hljs-property">Windows</span>.<span class="hljs-property">Forms</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Fiddler</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">System</span>.<span class="hljs-property">Text</span>.<span class="hljs-property">RegularExpressions</span>;<br> <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Handlers</span><br>&#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">OnBeforeRequest</span>(<span class="hljs-params">oS: Session</span>) &#123;<br>        <span class="hljs-keyword">if</span>(oS.<span class="hljs-property">host</span>.<span class="hljs-title class_">EndsWith</span>(<span class="hljs-string">&quot;.yuanshen.com&quot;</span>) || oS.<span class="hljs-property">host</span>.<span class="hljs-title class_">EndsWith</span>(<span class="hljs-string">&quot;.hoyoverse.com&quot;</span>) || oS.<span class="hljs-property">host</span>.<span class="hljs-title class_">EndsWith</span>(<span class="hljs-string">&quot;.mihoyo.com&quot;</span>)) &#123;<br>            oS.<span class="hljs-property">host</span> = <span class="hljs-string">&quot;服务器IP:666&quot;</span>; <span class="hljs-comment">// This can also be replaced with another IP address.（输入域名也可）</span><br>        &#125;<br>        <span class="hljs-keyword">if</span>(oS.<span class="hljs-title function_">uriContains</span>(<span class="hljs-string">&quot;http://uspider.yuanshen.com:8888/log&quot;</span>))&#123;<br>            oS.<span class="hljs-property">oRequest</span>.<span class="hljs-title class_">FailSession</span>(<span class="hljs-number">200</span>, <span class="hljs-string">&quot;Blocked&quot;</span>, <span class="hljs-string">&quot;haha&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>当登陆界面的logo变成hoyoverse，意味着代理已经成功运行了，输入事先创建的用户名，密码随便写~</p>
+</li>
+</ol>
+<h1 id="使用指令"><a href="#使用指令" class="headerlink" title="使用指令"></a>使用指令</h1><ol>
+<li><p>最原始的方法，是在grasscutter窗口，或向游戏中会话列表中的server用户发送指令</p>
+</li>
+<li><p>或者使用指令生成器：<a target="_blank" rel="noopener" href="https://github.com/jie65535/GrasscutterCommandGenerator">https://github.com/jie65535/GrasscutterCommandGenerator</a></p>
+</li>
+<li><p>或是在服务端添加插件，实现远程执行</p>
+<ul>
+<li><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/jie65535/gc-opencommand-plugin">https://github.com/jie65535/gc-opencommand-plugin</a></p>
+</li>
+<li><p>下载后放入服务器目录中的plugins文件夹</p>
+</li>
+<li><p>重启服务端</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#查询pid</span><br>ps -ef | grep java<br><span class="hljs-comment">#杀掉进程</span><br><span class="hljs-built_in">kill</span> &lt;pid&gt;<br><span class="hljs-comment">#启动服务端</span><br>java -jar grasscutter,jar<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在本地打开指令生成器，连接服务器，即可远程执行</p>
+</li>
+</ul>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B8%B8%E6%88%8F/" class="category-chain-item">游戏</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%B8%B8%E6%88%8F/%E5%8E%9F%E7%A5%9E/" class="category-chain-item">原神</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/grasscutter/">#grasscutter</a>
+      
+        <a href="/tags/%E5%8E%9F%E7%A5%9E/">#原神</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用代理游玩游戏服务器</div>
+      <div>https://www.kingdeworld.top/pages/2023/使用代理游玩游戏服务器</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Wanghzo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年1月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/pages/2023/%E9%9D%9E%E5%8D%8E%E4%B8%BA%E7%94%B5%E8%84%91%E4%B8%8B%E8%BD%BD%E5%8D%8E%E4%B8%BA%E7%94%B5%E8%84%91%E7%AE%A1%E5%AE%B6" title="非华为电脑下载华为电脑管家">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">非华为电脑下载华为电脑管家</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/pages/2023/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BA%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8" title="使用docker搭建游戏服务器">
+                        <span class="hidden-mobile">使用docker搭建游戏服务器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
