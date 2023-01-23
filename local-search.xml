@@ -4,6 +4,77 @@
   
   
   <entry>
+    <title>[转载]三步搞定安卓逆向</title>
+    <link href="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91.html"/>
+    <url>/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>转载自：三步搞定安卓逆向</p><p>原文链接：<a href="https://zkqiang.cn/posts/d5ff5ff8/">https://zkqiang.cn/posts/d5ff5ff8/</a></p></blockquote><blockquote><p>本文源于我近期的一次公司内部分享，通过逆向某款 APP 来介绍逆向过程。由于仅作为学习用途，APP 的相关信息会被遮盖，敬请理解。</p></blockquote><h2 id="关于逆向"><a href="#关于逆向" class="headerlink" title="关于逆向"></a>关于逆向</h2><p>逆向——包括但不限于通过反编译、Hook 等手段，来解析一些功能的实现过程。</p><p>逆向在很多领域都有应用，比如如今爬虫技术已经遍地走，甚至不用写代码都可以爬取数据，导致前端开发的反爬意识也逐步提升。因此 JS、Android 等领域的逆向，已经成为爬虫开发者必备的技能之一。</p><p>本文介绍的是最典型常见的传参加密，在很多应用接口都能见到，如果我们逆向解析出加密过程，就可以模拟出相同的密文，得到后端接口的“认可”。</p><h2 id="逆向的准备"><a href="#逆向的准备" class="headerlink" title="逆向的准备"></a>逆向的准备</h2><p>这里介绍下关于 Android 的逆向准备：</p><ul><li>Android 真机或模拟器（最好是真机）</li><li>安装 Android 5.0 或 6.0 版本</li><li>Fiddler、Charles 等抓包工具</li><li>Jadx、ApkTool 等反编译工具</li><li>dumpDex、FDex2 等脱壳工具</li><li>Java、Android 开发基础知识</li><li>Xposed 框架开发基础知识</li></ul><h2 id="逆向步骤"><a href="#逆向步骤" class="headerlink" title="逆向步骤"></a>逆向步骤</h2><p>介绍一下本文逆向的步骤：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901224417.jpeg" class="" title="img"><p>当然，用三步概括，看上去像“把大象塞进冰箱分为几步”。逆向作为一项与应用开发者对抗的网络安全技术，其手段花样多端，有时甚至不需要代码也可以完成逆向，所以这个概括仅对应文中的遇到情况。</p><h2 id="定位目标"><a href="#定位目标" class="headerlink" title="定位目标"></a>定位目标</h2><p>本次逆向是针对某款 APP 的订单接口，首先我们使用抓包工具捕获订单列表请求，下图为 Charles 界面：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210151.jpeg" class="" title="img"><p>可以看到参数里的 data 字段是密文，我们就使用这个 API 作为目标切入点。</p><h2 id="反编译-APK"><a href="#反编译-APK" class="headerlink" title="反编译 APK"></a>反编译 APK</h2><p>这里使用的反编译工具是 Jadx，它可以将 APK 直接反编译成 Java 代码，并且具有 GUI 界面方便操作，如下图所示：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210150.jpeg" class="" title="img"><p>通过包名和一些代码分析，确定是被 360 加固后，接下来需要尝试脱壳。</p><p>脱壳使用的是 FDex2，这是一款基于 Xposed 框架的 Hook 插件，对 360 加固比较有效。它的原理是 Hook ClassLoader，然后通过反射调用 getDex 方法获取 Dex 对象并导出，这里的 Dex 就是 APP 真正执行的部分。当然并不是所有加固都可以被 Hook 到，更多脱壳手段还需要进阶研究。</p><p>FDex2 使用方式很简单，在 Xposed 框架里激活后，选择目标 APP，然后重新打开 APP 后，被捕获的 Dex 文件会被保存下来，如下图所示：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210149.jpeg" class="" title="img"><p>Dex 是什么？简单地说，在 APK 构建过程中，Java 代码编译后产生的 class 文件，需要再转化成 Dex 文件，才能被 Android 虚拟机运行。</p><p>因此我们得到的 Dex 文件，就可以再次反编译成 Java 代码，我们还是使用 Jadx，它同样支持 Dex 格式。</p><p>由于 Dex 有体积限制，会被分包，如上图我们导出了不止一个文件，可以依次加载它们，通过搜索目标 API 的关键词，来找到目标代码块，如下图所示：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210148.jpeg" class="" title="img"><p>代码一般都会被反混淆，变量和方法名都是 a b c d 这样，然后搜索一个方法名，会发现有一万个同名的变量。还好 Jadx 内置了反混淆，开启后变量和方法被重命名为唯一编号，这样搜索时就不会有重名的情况了。</p><p>之后我们通过 Jadx 将代码导出成 Gradle 项目，借助 IDEA 的强大功能开始进行代码分析。</p><h2 id="分析代码"><a href="#分析代码" class="headerlink" title="分析代码"></a>分析代码</h2><p>由于大部分方法都是被重命名的，导致可读性严重下降，无法推测每个方法到底是什么功能，如下图这些代码：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210147.jpeg" class="" title="img"><p>第一眼你除了知道它是 Google 开发包之外，无法再获得更多信息。</p><p>所以分析代码这个步骤，完全是考验你的 Java 基本功 + 耐心，二者缺一不可。</p><p>不过不要退缩，我们只要遵循一些技巧，就可以大幅减少工作量。由于分析过程比较繁琐，这里就不结合具体代码了，只做一些理论总结：</p><ol><li><strong>从目标 API 开始入手，跟踪执行流程：</strong> 比如我们刚才已经搜索到关键词代码，那就从那一行开始，通过 IDEA 查看方法功能，可以一路向下点击。</li><li><strong>只分析涉及代码块，缩小分析范围：</strong> 请求过程通常会构建 Request 对象，那参数加密一定就在构建对象之前，我们只要找到构建 Request 对象的代码，然后查看加密参数被传入之前都经过了怎样的处理，其他代码全部无视。</li><li><strong>将部分代码块复制出来进行执行：</strong> 虽然反编译的项目代码无法被整体执行，但对于冗长难懂的方法代码，我们可以连同相关代码一起复制到一个新项目中，进行编译执行，方便我们调试。</li><li><strong>尝试搜索一些关键词：</strong> 代码并不会所有都被混淆，可以尝试全局搜索一些关键词。比如 Java 常用的加密算法，我们可以搜索 RSA、AES、MD5、Encrypt、public_*key 这些关键词和正则匹配，能搜到再好不过了。</li></ol><p>当你找到了加密方法，那么可以复制出来独立执行，然后自己构建参数传入加密，通过模拟请求，看接口是否正常返回。</p><p>需要注意，如果不能正常请求，并不一定是你找错了地方，也有可能代码本身有误，反编译的代码是有几率会出现这种情况的，导致你执行的和 APK 执行的结果不同。遇到这种情况，只能通过其他手段来修正代码，如阅读 Smali 代码、通过 Hook 等手段，这种情况比较复杂，后续会有文章单独介绍。</p><h2 id="逆向之后"><a href="#逆向之后" class="headerlink" title="逆向之后"></a>逆向之后</h2><p>完成代码分析后，恭喜你已经成功完成一次逆向，接下来就可以实现一些功能，比如模拟登录请求。建议直接使用 Java 代码，因为大部分加密用的是 Java 内置的 RSA &#x2F; AES 加密算法，其他语言的第三方库实现并不充分。</p><hr><p>至此本次逆向分享结束，逆向是一个大课题，本文由于篇幅原因，也只能将常见套路的大致流程介绍一下，后续一定追加更多细节部分的文章。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>其他</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>逆向</tag>
+      
+      <tag>Android</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>修改几个库的路径以节省C盘空间</title>
+    <link href="/pages/2023/%E4%BF%AE%E6%94%B9%E5%87%A0%E4%B8%AA%E5%BA%93%E7%9A%84%E8%B7%AF%E5%BE%84%E4%BB%A5%E8%8A%82%E7%9C%81C%E7%9B%98%E7%A9%BA%E9%97%B4.html"/>
+    <url>/pages/2023/%E4%BF%AE%E6%94%B9%E5%87%A0%E4%B8%AA%E5%BA%93%E7%9A%84%E8%B7%AF%E5%BE%84%E4%BB%A5%E8%8A%82%E7%9C%81C%E7%9B%98%E7%A9%BA%E9%97%B4.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>进入<code>%USERPROFILE%</code>可以看到有几个以<code>.</code>开头的文件夹，它们有的超级大。这是因为有的程序会把需要的库下到里面去。我们可以将它们挪到其他位置去，不要占用宝贵的C盘空间</p><h1 id="Java开发相关"><a href="#Java开发相关" class="headerlink" title="Java开发相关"></a>Java开发相关</h1><h2 id="gradle文件夹"><a href="#gradle文件夹" class="headerlink" title=".gradle文件夹"></a><code>.gradle</code>文件夹</h2><ol><li><p>在<code>%USERPROFILE%</code>找到该文件夹</p></li><li><p>将该文件夹剪切到新地方</p></li><li><p>添加环境变量<code>GRADLE_USER_HOME</code>，变量值设为新地址</p><img src="/pages/2023/%E4%BF%AE%E6%94%B9%E5%87%A0%E4%B8%AA%E5%BA%93%E7%9A%84%E8%B7%AF%E5%BE%84%E4%BB%A5%E8%8A%82%E7%9C%81C%E7%9B%98%E7%A9%BA%E9%97%B4/1.png" class="" title="img"></li><li><p>在idea中修改设置</p><img src="/pages/2023/%E4%BF%AE%E6%94%B9%E5%87%A0%E4%B8%AA%E5%BA%93%E7%9A%84%E8%B7%AF%E5%BE%84%E4%BB%A5%E8%8A%82%E7%9C%81C%E7%9B%98%E7%A9%BA%E9%97%B4/2.png" class="" title="img"><p><em>ps：据说新版本idea会自动配置</em></p></li></ol><h1 id="Rust开发相关"><a href="#Rust开发相关" class="headerlink" title="Rust开发相关"></a>Rust开发相关</h1><h2 id="rust和-cargo文件夹"><a href="#rust和-cargo文件夹" class="headerlink" title=".rust和.cargo文件夹"></a><code>.rust</code>和<code>.cargo</code>文件夹</h2><ol><li><p>在<code>%USERPROFILE%</code>找到这两个文件夹</p></li><li><p>剪切到其他地方</p></li><li><p>添加环境变量：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">CARGO_HOME</span> = <span class="hljs-string">&quot;&lt;自定义路径&gt;\.cargo&quot;</span><br><span class="hljs-attr">RUSTUP_HOME</span> = <span class="hljs-string">&quot;&lt;自定义路径&gt;\.rustup&quot;</span><br></code></pre></td></tr></table></figure></li><li><p>添加path环境变量</p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-meta">%</span>CARGO_HOME<span class="hljs-meta">%</span>\bi<span class="hljs-symbol">n</span><br></code></pre></td></tr></table></figure></li><li><p>检查是否成功</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">rust --version<br>cargo --version<br></code></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>C盘扩容计划</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>使用repkg将wallpaper engine中的场景文件转换为图片</title>
+    <link href="/pages/2023/%E4%BD%BF%E7%94%A8repkg%E5%B0%86wallpaper-engine%E4%B8%AD%E7%9A%84%E5%9C%BA%E6%99%AF%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87.html"/>
+    <url>/pages/2023/%E4%BD%BF%E7%94%A8repkg%E5%B0%86wallpaper-engine%E4%B8%AD%E7%9A%84%E5%9C%BA%E6%99%AF%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>wallpaper engine总是越用越大（不知道为什么），极其占用空间。有的时候根本不需要场景文件，只要里面的图片就好了。于是我们可以使用repkg对场景文件进行解包，只保留里面的图片</p><p>repkg地址：<a href="https://github.com/notscuffed/repkg/tree/v0.2.2-alpha">https://github.com/notscuffed/repkg/tree/v0.2.2-alpha</a></p><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol><li><p>在上面的链接中下载repkg的release（或是自己编译）</p></li><li><p>将<code>repkg.exe</code>放在壁纸目录</p><ul><li>获取目录路径：在wallpaper engine中右键一个场景，选择在资源管理器中打开，按<kbd>alt</kbd>+<kbd>↑</kbd>（即上一级目录），将exe放在这里</li></ul></li><li><p>此处打开cmd或powershell，输入</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># extract表示提取</span><br><span class="hljs-comment"># -e tex表示只提取tex文件（这个文件反编译之后就是图片）</span><br><span class="hljs-comment"># -s 表示把结果放在一个目录里</span><br><span class="hljs-comment"># -p ./output表示将结果放在当前文件夹下一个叫output的文件夹中</span><br><span class="hljs-comment"># . 表示提取当前目录中所有场景</span><br>.\repkg extract -e tex -s -o ./output .<br></code></pre></td></tr></table></figure></li><li><p>提取的文件中还有<code>.tex</code>和<code>.tex-json</code>文件，如果不需要可以将其删除：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">del *.tex<br>del *.tex-json<br></code></pre></td></tr></table></figure></li><li><p>打开output文件夹，里面就是想要的图片了</p></li></ol><h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>有些场景图片是由许多图层构成的，需要自己用ps合成</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>其他</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>wallpaper enginge</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>使用Termux实现电脑ssh到手机</title>
     <link href="/pages/2023/%E4%BD%BF%E7%94%A8Termux%E5%AE%9E%E7%8E%B0%E7%94%B5%E8%84%91ssh%E5%88%B0%E6%89%8B%E6%9C%BA.html"/>
     <url>/pages/2023/%E4%BD%BF%E7%94%A8Termux%E5%AE%9E%E7%8E%B0%E7%94%B5%E8%84%91ssh%E5%88%B0%E6%89%8B%E6%9C%BA.html</url>
@@ -22,13 +93,13 @@
     
     <tags>
       
+      <tag>Android</tag>
+      
       <tag>ssh</tag>
       
       <tag>Linux</tag>
       
       <tag>Termux</tag>
-      
-      <tag>Android</tag>
       
     </tags>
     
@@ -205,7 +276,7 @@
     <link href="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github.html"/>
     <url>/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github.html</url>
     
-    <content type="html"><![CDATA[<blockquote><p>转载自：GitHubDesktop通过ssh连接Github</p><p>原文链接：<a href="https://blog.csdn.net/Leo_DLi/article/details/126281321">https://blog.csdn.net/Leo_DLi&#x2F;article&#x2F;details&#x2F;126281321</a></p></blockquote><p>首先，通过 ssh 连接的好处在于不必每次都要验证GitHub的账号密码，减少了一些繁琐的操作，同时可以提高 pull&#x2F;push 的效率，特别是在网络比较差劲，无法通过 http 或 https 有效连接到GitHub时，ssh 就是一个不错的选择。</p><p>言归正传</p><h1 id="一，生成-ssh"><a href="#一，生成-ssh" class="headerlink" title="一，生成 ssh"></a>一，生成 ssh</h1><p>打开cmd，键入以下指令，会在指定目录下生成 .ssh文件夹（<code>.</code>开头的隐藏文件怎么查看，请自行查找方法）。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa -C &quot;xxxxx@xx.com&quot;<br></code></pre></td></tr></table></figure><p>回车之后，一般会在 <code>C:\Users\用户名\.ssh</code> 位置生成一个名为 .ssh 的文件夹。</p><p>该文件中的 <code>id_rsa.pub</code> 文件中存放的就是公钥。</p><p>打开该文件（可通过记事本方式打开），复制出公钥。</p><h1 id="二，进入GitHub官网，设置你的公钥。"><a href="#二，进入GitHub官网，设置你的公钥。" class="headerlink" title="二，进入GitHub官网，设置你的公钥。"></a>二，进入GitHub官网，设置你的公钥。</h1><p>参考如下截图：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/af3788be23574429be4dfc6ad51fb2b0.png" class="" title="img"><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/4883cd509f744a49b4be97423ee35b7a.png" class="" title="img"><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/c1902fffd2cf4b9f911972bbcb35c6f3.png" class="" title="img"><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/7821524963d04eb493f6f140f9273e09.png" class="" title="img"><p>Title：自己起一个有高分辨率的名字。</p><p>Key：就是你刚刚复制的 <code>id_rsa.pub</code> 文件中的内容。</p><p>配置好之后，Github 远程仓库，就可以和你的电脑通过 ssh 进行连接了。接下来，需要在 GitHubDesktop 软件中配置来使用 ssh。</p><h1 id="三，GitHubDesktop配置。"><a href="#三，GitHubDesktop配置。" class="headerlink" title="三，GitHubDesktop配置。"></a>三，GitHubDesktop配置。</h1><p>还是读图：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/757aec976ed24f3394cd4302d58988a4.png" class="" title="img"><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/fe3fdd0c327e46ed809a99aaafad66ce.png" class="" title="img"><p>在 Remote 中将 原来的 https:xxx.git 替换为这里的 <a href="mailto:&#103;&#x69;&#x74;&#x40;&#120;&#120;&#x78;&#120;&#120;&#46;&#103;&#x69;&#116;">&#103;&#x69;&#x74;&#x40;&#120;&#120;&#x78;&#120;&#120;&#46;&#103;&#x69;&#116;</a> 然后 save 就可以了。</p><p>接下来就可以愉快的开始 pull&#x2F;push 了。<br>————————————————<br>版权声明：本文为CSDN博主「Leo_DLi」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/Leo_DLi/article/details/126281321">https://blog.csdn.net/Leo_DLi/article/details/126281321</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>转载自：GitHubDesktop通过ssh连接Github</p><p>原文链接：<a href="https://blog.csdn.net/Leo_DLi/article/details/126281321">https://blog.csdn.net/Leo_DLi&#x2F;article&#x2F;details&#x2F;126281321</a></p></blockquote><p>首先，通过 ssh 连接的好处在于不必每次都要验证GitHub的账号密码，减少了一些繁琐的操作，同时可以提高 pull&#x2F;push 的效率，特别是在网络比较差劲，无法通过 http 或 https 有效连接到GitHub时，ssh 就是一个不错的选择。</p><p>言归正传</p><h1 id="一，生成-ssh"><a href="#一，生成-ssh" class="headerlink" title="一，生成 ssh"></a>一，生成 ssh</h1><p>打开cmd，键入以下指令，会在指定目录下生成 .ssh文件夹（<code>.</code>开头的隐藏文件怎么查看，请自行查找方法）。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa -C &quot;xxxxx@xx.com&quot;<br></code></pre></td></tr></table></figure><p>回车之后，一般会在 <code>C:\Users\用户名\.ssh</code> 位置生成一个名为 .ssh 的文件夹。</p><p>该文件中的 <code>id_rsa.pub</code> 文件中存放的就是公钥。</p><p>打开该文件（可通过记事本方式打开），复制出公钥。</p><h1 id="二，进入GitHub官网，设置你的公钥。"><a href="#二，进入GitHub官网，设置你的公钥。" class="headerlink" title="二，进入GitHub官网，设置你的公钥。"></a>二，进入GitHub官网，设置你的公钥。</h1><p>参考如下截图：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/af3788be23574429be4dfc6ad51fb2b0.png" class="" title="img"><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/4883cd509f744a49b4be97423ee35b7a.png" class="" title="img"><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/c1902fffd2cf4b9f911972bbcb35c6f3.png" class="" title="img"><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/7821524963d04eb493f6f140f9273e09.png" class="" title="img"><p>Title：自己起一个有高分辨率的名字。</p><p>Key：就是你刚刚复制的 <code>id_rsa.pub</code> 文件中的内容。</p><p>配置好之后，Github 远程仓库，就可以和你的电脑通过 ssh 进行连接了。接下来，需要在 GitHubDesktop 软件中配置来使用 ssh。</p><h1 id="三，GitHubDesktop配置。"><a href="#三，GitHubDesktop配置。" class="headerlink" title="三，GitHubDesktop配置。"></a>三，GitHubDesktop配置。</h1><p>还是读图：</p><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/757aec976ed24f3394cd4302d58988a4.png" class="" title="img"><img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/fe3fdd0c327e46ed809a99aaafad66ce.png" class="" title="img"><p>在 Remote 中将 原来的 https:xxx.git 替换为这里的 <a href="mailto:&#x67;&#105;&#116;&#x40;&#120;&#x78;&#x78;&#120;&#120;&#46;&#x67;&#x69;&#x74;">&#x67;&#105;&#116;&#x40;&#120;&#x78;&#x78;&#120;&#120;&#46;&#x67;&#x69;&#x74;</a> 然后 save 就可以了。</p><p>接下来就可以愉快的开始 pull&#x2F;push 了。<br>————————————————<br>版权声明：本文为CSDN博主「Leo_DLi」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/Leo_DLi/article/details/126281321">https://blog.csdn.net/Leo_DLi/article/details/126281321</a></p>]]></content>
     
     
     <categories>

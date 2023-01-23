@@ -13,32 +13,33 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Leo_DLi">
+  <meta name="author" content="张凯强">
   <meta name="keywords" content="">
   
-    <meta name="description" content="转载自：GitHubDesktop通过ssh连接Github 原文链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Leo_DLi&#x2F;article&#x2F;details&#x2F;126281321  首先，通过 ssh 连接的好处在于不必每次都要验证GitHub的账号密码，减少了一些繁琐的操作，同时可以提高 pull&#x2F;push 的效率，特别是在网络比较差劲，无法通过 h">
+    <meta name="description" content="转载自：三步搞定安卓逆向 原文链接：https:&#x2F;&#x2F;zkqiang.cn&#x2F;posts&#x2F;d5ff5ff8&#x2F;   本文源于我近期的一次公司内部分享，通过逆向某款 APP 来介绍逆向过程。由于仅作为学习用途，APP 的相关信息会被遮盖，敬请理解。  关于逆向逆向——包括但不限于通过反编译、Hook 等手段，来解析一些功能的实现过程。 逆向在很多领域都有应用，比如如今爬虫技术已经遍地走，甚至不用写代码都">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[转载] GitHubDesktop通过ssh连接Github">
-<meta property="og:url" content="https://www.kingdeworld.top/pages/2023/[%E8%BD%AC%E8%BD%BD]GitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github">
+<meta property="og:title" content="[转载]三步搞定安卓逆向">
+<meta property="og:url" content="https://www.kingdeworld.top/pages/2023/[%E8%BD%AC%E8%BD%BD]%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91">
 <meta property="og:site_name" content="Wanghzo&#39;s Blog">
-<meta property="og:description" content="转载自：GitHubDesktop通过ssh连接Github 原文链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Leo_DLi&#x2F;article&#x2F;details&#x2F;126281321  首先，通过 ssh 连接的好处在于不必每次都要验证GitHub的账号密码，减少了一些繁琐的操作，同时可以提高 pull&#x2F;push 的效率，特别是在网络比较差劲，无法通过 h">
+<meta property="og:description" content="转载自：三步搞定安卓逆向 原文链接：https:&#x2F;&#x2F;zkqiang.cn&#x2F;posts&#x2F;d5ff5ff8&#x2F;   本文源于我近期的一次公司内部分享，通过逆向某款 APP 来介绍逆向过程。由于仅作为学习用途，APP 的相关信息会被遮盖，敬请理解。  关于逆向逆向——包括但不限于通过反编译、Hook 等手段，来解析一些功能的实现过程。 逆向在很多领域都有应用，比如如今爬虫技术已经遍地走，甚至不用写代码都">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/af3788be23574429be4dfc6ad51fb2b0.png">
-<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/4883cd509f744a49b4be97423ee35b7a.png">
-<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/c1902fffd2cf4b9f911972bbcb35c6f3.png">
-<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/7821524963d04eb493f6f140f9273e09.png">
-<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/757aec976ed24f3394cd4302d58988a4.png">
-<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/fe3fdd0c327e46ed809a99aaafad66ce.png">
-<meta property="article:published_time" content="2023-01-09T03:18:41.000Z">
-<meta property="article:modified_time" content="2023-01-10T21:51:11.882Z">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901224417.jpeg">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210151.jpeg">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210150.jpeg">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210149.jpeg">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210148.jpeg">
+<meta property="og:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210147.jpeg">
+<meta property="article:published_time" content="2023-01-18T10:49:59.000Z">
+<meta property="article:modified_time" content="2023-01-18T11:04:01.904Z">
 <meta property="article:author" content="Wanghzo">
-<meta property="article:tag" content="GithubDesktop">
+<meta property="article:tag" content="逆向">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/af3788be23574429be4dfc6ad51fb2b0.png">
+<meta name="twitter:image" content="https://www.kingdeworld.top/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901224417.jpeg">
   
   
   
-  <title>[转载] GitHubDesktop通过ssh连接Github - Wanghzo&#39;s Blog</title>
+  <title>[转载]三步搞定安卓逆向 - Wanghzo&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">[转载] GitHubDesktop通过ssh连接Github</span>
+            <span id="subtitle">[转载]三步搞定安卓逆向</span>
           
         </div>
 
@@ -214,14 +215,14 @@
     
       <span class="post-meta mr-2">
         <i class="iconfont icon-author" aria-hidden="true"></i>
-        Leo_DLi
+        张凯强
       </span>
     
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-09 11:18" pubdate>
-          2023年1月9日 上午
+        <time datetime="2023-01-18 18:49" pubdate>
+          2023年1月18日 晚上
         </time>
       </span>
     
@@ -232,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          875 字
+          2.2k 字
         
       </span>
     
@@ -243,7 +244,7 @@
         
         
         
-          8 分钟
+          19 分钟
         
       </span>
     
@@ -288,44 +289,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Git"
-        id="heading-0bcc70105ad279503e31fe7b3f47b665" role="tab" data-toggle="collapse" href="#collapse-0bcc70105ad279503e31fe7b3f47b665"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="其他"
+        id="heading-0d98c74797e49d00bcc4c17c9d557a2b" role="tab" data-toggle="collapse" href="#collapse-0d98c74797e49d00bcc4c17c9d557a2b"
         aria-expanded="true"
       >
-        Git
-        <span class="list-group-count">(2)</span>
+        其他
+        <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-0bcc70105ad279503e31fe7b3f47b665"
-           role="tabpanel" aria-labelledby="heading-0bcc70105ad279503e31fe7b3f47b665">
-        
-        
-          
-          
-  <div class="category-post-list">
-    
-    
-  </div>
-
-          
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Github"
-        id="heading-e1adbcbb92c622d0b3e619f9d0730abf" role="tab" data-toggle="collapse" href="#collapse-e1adbcbb92c622d0b3e619f9d0730abf"
-        aria-expanded="true"
-      >
-        Github
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse show" id="collapse-e1adbcbb92c622d0b3e619f9d0730abf"
-           role="tabpanel" aria-labelledby="heading-e1adbcbb92c622d0b3e619f9d0730abf">
+      <div class="category-collapse collapse show" id="collapse-0d98c74797e49d00bcc4c17c9d557a2b"
+           role="tabpanel" aria-labelledby="heading-0d98c74797e49d00bcc4c17c9d557a2b">
         
         
           
@@ -334,56 +308,33 @@
     
       
       
-        <a href="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github" title="[转载] GitHubDesktop通过ssh连接Github"
+        <a href="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91" title="[转载]三步搞定安卓逆向"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">[转载] GitHubDesktop通过ssh连接Github</span>
+          <span class="category-post">[转载]三步搞定安卓逆向</span>
         </a>
       
     
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="gitbook"
-        id="heading-1bd59cb4a27c7554f0d1febb0bca7b4e" role="tab" data-toggle="collapse" href="#collapse-1bd59cb4a27c7554f0d1febb0bca7b4e"
-        aria-expanded="false"
-      >
-        gitbook
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-1bd59cb4a27c7554f0d1febb0bca7b4e"
-           role="tabpanel" aria-labelledby="heading-1bd59cb4a27c7554f0d1febb0bca7b4e">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
       
       
-        <a href="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitBook%20%E4%BB%8E%E6%87%B5%E9%80%BC%E5%88%B0%E5%85%A5%E9%97%A8" title="[转载]GitBook 从懵逼到入门"
+        <a href="/pages/2023/%E4%BD%BF%E7%94%A8repkg%E5%B0%86wallpaper-engine%E4%B8%AD%E7%9A%84%E5%9C%BA%E6%99%AF%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87" title="使用repkg将wallpaper engine中的场景文件转换为图片"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">[转载]GitBook 从懵逼到入门</span>
+          <span class="category-post">使用repkg将wallpaper engine中的场景文件转换为图片</span>
+        </a>
+      
+    
+      
+      
+        <a href="/pages/2023/%E9%9D%9E%E5%8D%8E%E4%B8%BA%E7%94%B5%E8%84%91%E4%B8%8B%E8%BD%BD%E5%8D%8E%E4%B8%BA%E7%94%B5%E8%84%91%E7%AE%A1%E5%AE%B6" title="非华为电脑下载华为电脑管家"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">非华为电脑下载华为电脑管家</span>
         </a>
       
     
   </div>
 
-        
-      </div>
-    </div>
-  
         
       </div>
     </div>
@@ -401,45 +352,70 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">[转载] GitHubDesktop通过ssh连接Github</h1>
+            <h1 style="display: none">[转载]三步搞定安卓逆向</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>转载自：GitHubDesktop通过ssh连接Github</p>
-<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Leo_DLi/article/details/126281321">https://blog.csdn.net/Leo_DLi&#x2F;article&#x2F;details&#x2F;126281321</a></p>
+<p>转载自：三步搞定安卓逆向</p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://zkqiang.cn/posts/d5ff5ff8/">https://zkqiang.cn/posts/d5ff5ff8/</a></p>
 </blockquote>
-<p>首先，通过 ssh 连接的好处在于不必每次都要验证GitHub的账号密码，减少了一些繁琐的操作，同时可以提高 pull&#x2F;push 的效率，特别是在网络比较差劲，无法通过 http 或 https 有效连接到GitHub时，ssh 就是一个不错的选择。</p>
-<p>言归正传</p>
-<h1 id="一，生成-ssh"><a href="#一，生成-ssh" class="headerlink" title="一，生成 ssh"></a>一，生成 ssh</h1><p>打开cmd，键入以下指令，会在指定目录下生成 .ssh文件夹（<code>.</code>开头的隐藏文件怎么查看，请自行查找方法）。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa -C &quot;xxxxx@xx.com&quot;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>本文源于我近期的一次公司内部分享，通过逆向某款 APP 来介绍逆向过程。由于仅作为学习用途，APP 的相关信息会被遮盖，敬请理解。</p>
+</blockquote>
+<h2 id="关于逆向"><a href="#关于逆向" class="headerlink" title="关于逆向"></a>关于逆向</h2><p>逆向——包括但不限于通过反编译、Hook 等手段，来解析一些功能的实现过程。</p>
+<p>逆向在很多领域都有应用，比如如今爬虫技术已经遍地走，甚至不用写代码都可以爬取数据，导致前端开发的反爬意识也逐步提升。因此 JS、Android 等领域的逆向，已经成为爬虫开发者必备的技能之一。</p>
+<p>本文介绍的是最典型常见的传参加密，在很多应用接口都能见到，如果我们逆向解析出加密过程，就可以模拟出相同的密文，得到后端接口的“认可”。</p>
+<h2 id="逆向的准备"><a href="#逆向的准备" class="headerlink" title="逆向的准备"></a>逆向的准备</h2><p>这里介绍下关于 Android 的逆向准备：</p>
+<ul>
+<li>Android 真机或模拟器（最好是真机）</li>
+<li>安装 Android 5.0 或 6.0 版本</li>
+<li>Fiddler、Charles 等抓包工具</li>
+<li>Jadx、ApkTool 等反编译工具</li>
+<li>dumpDex、FDex2 等脱壳工具</li>
+<li>Java、Android 开发基础知识</li>
+<li>Xposed 框架开发基础知识</li>
+</ul>
+<h2 id="逆向步骤"><a href="#逆向步骤" class="headerlink" title="逆向步骤"></a>逆向步骤</h2><p>介绍一下本文逆向的步骤：</p>
+<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901224417.jpeg" srcset="/img/loading.gif" lazyload class="" title="img">
 
+<p>当然，用三步概括，看上去像“把大象塞进冰箱分为几步”。逆向作为一项与应用开发者对抗的网络安全技术，其手段花样多端，有时甚至不需要代码也可以完成逆向，所以这个概括仅对应文中的遇到情况。</p>
+<h2 id="定位目标"><a href="#定位目标" class="headerlink" title="定位目标"></a>定位目标</h2><p>本次逆向是针对某款 APP 的订单接口，首先我们使用抓包工具捕获订单列表请求，下图为 Charles 界面：</p>
+<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210151.jpeg" srcset="/img/loading.gif" lazyload class="" title="img">
 
-<p>回车之后，一般会在 <code>C:\Users\用户名\.ssh</code> 位置生成一个名为 .ssh 的文件夹。</p>
-<p>该文件中的 <code>id_rsa.pub</code> 文件中存放的就是公钥。</p>
-<p>打开该文件（可通过记事本方式打开），复制出公钥。</p>
-<h1 id="二，进入GitHub官网，设置你的公钥。"><a href="#二，进入GitHub官网，设置你的公钥。" class="headerlink" title="二，进入GitHub官网，设置你的公钥。"></a>二，进入GitHub官网，设置你的公钥。</h1><p>参考如下截图：</p>
-<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/af3788be23574429be4dfc6ad51fb2b0.png" srcset="/img/loading.gif" lazyload class="" title="img">
+<p>可以看到参数里的 data 字段是密文，我们就使用这个 API 作为目标切入点。</p>
+<h2 id="反编译-APK"><a href="#反编译-APK" class="headerlink" title="反编译 APK"></a>反编译 APK</h2><p>这里使用的反编译工具是 Jadx，它可以将 APK 直接反编译成 Java 代码，并且具有 GUI 界面方便操作，如下图所示：</p>
+<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210150.jpeg" srcset="/img/loading.gif" lazyload class="" title="img">
 
+<p>通过包名和一些代码分析，确定是被 360 加固后，接下来需要尝试脱壳。</p>
+<p>脱壳使用的是 FDex2，这是一款基于 Xposed 框架的 Hook 插件，对 360 加固比较有效。它的原理是 Hook ClassLoader，然后通过反射调用 getDex 方法获取 Dex 对象并导出，这里的 Dex 就是 APP 真正执行的部分。当然并不是所有加固都可以被 Hook 到，更多脱壳手段还需要进阶研究。</p>
+<p>FDex2 使用方式很简单，在 Xposed 框架里激活后，选择目标 APP，然后重新打开 APP 后，被捕获的 Dex 文件会被保存下来，如下图所示：</p>
+<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210149.jpeg" srcset="/img/loading.gif" lazyload class="" title="img">
+<p>Dex 是什么？简单地说，在 APK 构建过程中，Java 代码编译后产生的 class 文件，需要再转化成 Dex 文件，才能被 Android 虚拟机运行。</p>
+<p>因此我们得到的 Dex 文件，就可以再次反编译成 Java 代码，我们还是使用 Jadx，它同样支持 Dex 格式。</p>
+<p>由于 Dex 有体积限制，会被分包，如上图我们导出了不止一个文件，可以依次加载它们，通过搜索目标 API 的关键词，来找到目标代码块，如下图所示：</p>
+<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210148.jpeg" srcset="/img/loading.gif" lazyload class="" title="img">
 
+<p>代码一般都会被反混淆，变量和方法名都是 a b c d 这样，然后搜索一个方法名，会发现有一万个同名的变量。还好 Jadx 内置了反混淆，开启后变量和方法被重命名为唯一编号，这样搜索时就不会有重名的情况了。</p>
+<p>之后我们通过 Jadx 将代码导出成 Gradle 项目，借助 IDEA 的强大功能开始进行代码分析。</p>
+<h2 id="分析代码"><a href="#分析代码" class="headerlink" title="分析代码"></a>分析代码</h2><p>由于大部分方法都是被重命名的，导致可读性严重下降，无法推测每个方法到底是什么功能，如下图这些代码：</p>
+<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D%E4%B8%89%E6%AD%A5%E6%90%9E%E5%AE%9A%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/20190901210147.jpeg" srcset="/img/loading.gif" lazyload class="" title="img">
 
-<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/4883cd509f744a49b4be97423ee35b7a.png" srcset="/img/loading.gif" lazyload class="" title="img">
-
-<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/c1902fffd2cf4b9f911972bbcb35c6f3.png" srcset="/img/loading.gif" lazyload class="" title="img">
-
-<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/7821524963d04eb493f6f140f9273e09.png" srcset="/img/loading.gif" lazyload class="" title="img">
-
-<p>Title：自己起一个有高分辨率的名字。</p>
-<p>Key：就是你刚刚复制的 <code>id_rsa.pub</code> 文件中的内容。</p>
-<p>配置好之后，Github 远程仓库，就可以和你的电脑通过 ssh 进行连接了。接下来，需要在 GitHubDesktop 软件中配置来使用 ssh。</p>
-<h1 id="三，GitHubDesktop配置。"><a href="#三，GitHubDesktop配置。" class="headerlink" title="三，GitHubDesktop配置。"></a>三，GitHubDesktop配置。</h1><p>还是读图：</p>
-<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/757aec976ed24f3394cd4302d58988a4.png" srcset="/img/loading.gif" lazyload class="" title="img">
-
-<img src="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5DGitHubDesktop%E9%80%9A%E8%BF%87ssh%E8%BF%9E%E6%8E%A5Github/fe3fdd0c327e46ed809a99aaafad66ce.png" srcset="/img/loading.gif" lazyload class="" title="img">
-
-<p>在 Remote 中将 原来的 https:xxx.git 替换为这里的 <a href="mailto:&#x67;&#105;&#116;&#x40;&#120;&#x78;&#x78;&#120;&#120;&#46;&#x67;&#x69;&#x74;">&#x67;&#105;&#116;&#x40;&#120;&#x78;&#x78;&#120;&#120;&#46;&#x67;&#x69;&#x74;</a> 然后 save 就可以了。</p>
-<p>接下来就可以愉快的开始 pull&#x2F;push 了。<br>————————————————<br>版权声明：本文为CSDN博主「Leo_DLi」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Leo_DLi/article/details/126281321">https://blog.csdn.net/Leo_DLi/article/details/126281321</a></p>
+<p>第一眼你除了知道它是 Google 开发包之外，无法再获得更多信息。</p>
+<p>所以分析代码这个步骤，完全是考验你的 Java 基本功 + 耐心，二者缺一不可。</p>
+<p>不过不要退缩，我们只要遵循一些技巧，就可以大幅减少工作量。由于分析过程比较繁琐，这里就不结合具体代码了，只做一些理论总结：</p>
+<ol>
+<li><strong>从目标 API 开始入手，跟踪执行流程：</strong> 比如我们刚才已经搜索到关键词代码，那就从那一行开始，通过 IDEA 查看方法功能，可以一路向下点击。</li>
+<li><strong>只分析涉及代码块，缩小分析范围：</strong> 请求过程通常会构建 Request 对象，那参数加密一定就在构建对象之前，我们只要找到构建 Request 对象的代码，然后查看加密参数被传入之前都经过了怎样的处理，其他代码全部无视。</li>
+<li><strong>将部分代码块复制出来进行执行：</strong> 虽然反编译的项目代码无法被整体执行，但对于冗长难懂的方法代码，我们可以连同相关代码一起复制到一个新项目中，进行编译执行，方便我们调试。</li>
+<li><strong>尝试搜索一些关键词：</strong> 代码并不会所有都被混淆，可以尝试全局搜索一些关键词。比如 Java 常用的加密算法，我们可以搜索 RSA、AES、MD5、Encrypt、public_*key 这些关键词和正则匹配，能搜到再好不过了。</li>
+</ol>
+<p>当你找到了加密方法，那么可以复制出来独立执行，然后自己构建参数传入加密，通过模拟请求，看接口是否正常返回。</p>
+<p>需要注意，如果不能正常请求，并不一定是你找错了地方，也有可能代码本身有误，反编译的代码是有几率会出现这种情况的，导致你执行的和 APK 执行的结果不同。遇到这种情况，只能通过其他手段来修正代码，如阅读 Smali 代码、通过 Hook 等手段，这种情况比较复杂，后续会有文章单独介绍。</p>
+<h2 id="逆向之后"><a href="#逆向之后" class="headerlink" title="逆向之后"></a>逆向之后</h2><p>完成代码分析后，恭喜你已经成功完成一次逆向，接下来就可以实现一些功能，比如模拟登录请求。建议直接使用 Java 代码，因为大部分加密用的是 Java 内置的 RSA &#x2F; AES 加密算法，其他语言的第三方库实现并不充分。</p>
+<hr>
+<p>至此本次逆向分享结束，逆向是一个大课题，本文由于篇幅原因，也只能将常见套路的大致流程介绍一下，后续一定追加更多细节部分的文章。</p>
 
                 
               </div>
@@ -458,15 +434,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Git/" class="category-chain-item">Git</a>
+  <a href="/categories/%E5%85%B6%E4%BB%96/" class="category-chain-item">其他</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/Git/Github/" class="category-chain-item">Github</a>
-  
-  
-
   
 
       </span>
@@ -480,7 +449,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/GithubDesktop/">#GithubDesktop</a>
+        <a href="/tags/%E9%80%86%E5%90%91/">#逆向</a>
+      
+        <a href="/tags/Android/">#Android</a>
       
     </div>
   
@@ -492,20 +463,20 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[转载] GitHubDesktop通过ssh连接Github</div>
-      <div>https://www.kingdeworld.top/pages/2023/[转载]GitHubDesktop通过ssh连接Github</div>
+      <div>[转载]三步搞定安卓逆向</div>
+      <div>https://www.kingdeworld.top/pages/2023/[转载]三步搞定安卓逆向</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Leo_DLi</div>
+          <div>张凯强</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月9日</div>
+          <div>2023年1月18日</div>
         </div>
       
       
@@ -516,15 +487,9 @@
             
               
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
                   <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
-                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
-                    <i class="iconfont icon-sa"></i>
                   </span>
                 </a>
               
@@ -543,18 +508,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/pages/2023/%E6%89%93%E9%80%A0RSS%E4%BF%A1%E6%81%AF%E6%B5%81%EF%BC%9Arsshub-miniflux-fluent-reader-lite" title="打造RSS信息流：rsshub+miniflux+fluent reader lite">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">打造RSS信息流：rsshub+miniflux+fluent reader lite</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/pages/2023/%5B%E8%BD%AC%E8%BD%BD%5D-Win10-Vmware-Workstation-16-%E5%AE%89%E8%A3%85-macOS-%E8%AE%B0%E5%BD%95" title="[转载] Win10 Vmware Workstation 16 安装 macOS 记录">
-                        <span class="hidden-mobile">[转载] Win10 Vmware Workstation 16 安装 macOS 记录</span>
+                      <a href="/pages/2023/%E4%BF%AE%E6%94%B9%E5%87%A0%E4%B8%AA%E5%BA%93%E7%9A%84%E8%B7%AF%E5%BE%84%E4%BB%A5%E8%8A%82%E7%9C%81C%E7%9B%98%E7%A9%BA%E9%97%B4" title="修改几个库的路径以节省C盘空间">
+                        <span class="hidden-mobile">修改几个库的路径以节省C盘空间</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
